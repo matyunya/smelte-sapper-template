@@ -1,7 +1,7 @@
 {
   "name": "smelte-template",
   "description": "Sapper template for Smelte",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "scripts": {
     "dev": "sapper dev",
     "build": "sapper build --legacy",
