@@ -52,14 +52,13 @@
   }
 
   const menu = [
-    { to: "/another-page", text: "Text fields" },
-    { to: "/components/buttons", text: "Buttons" },
+    { to: "/about", text: "About" },
+    { to: "/blog", text: "Blog" },
   ];
 
   const topMenu = [
-    { to: "/components", text: "Components" },
-    { to: "/typography", text: "Typography" },
-    { to: "/color", text: "Color" }
+    { to: "/about", text: "About" },
+    { to: "/blog", text: "Blog" },
   ];
 
   function toggleNav() {
@@ -107,7 +106,7 @@
       persistent={$persistent}
       elevation={$elevation}
       breakpoint={$breakpoint}>
-      <h6 class="p-6 ml-1 pb-2 text-xs text-gray-900">Components</h6>
+      <h6 class="p-6 ml-1 pb-2 text-xs text-gray-900">First section of the menu</h6>
       <List items={menu}>
         <span slot="item" let:item class="cursor-pointer">
           {#if item.to === '/typography'}
