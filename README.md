@@ -1,25 +1,50 @@
-# Smelte template for sapper
-[Demo](https://smelte.matyunya.now.sh)
+# Svelte Tailwind Template
 
-[Home repo](https://github.com/matyunya/smelte)
+## Get started
 
-Smelte is a UI framework built on top of Svelte and Tailwind CSS using Material Design spec (hence the name).
-It comes with many components and utility functions making it easy to build beautiful responsive layouts while keeping
-bundle size and performance at check all thanks to Svelte.
-
-### Installation
-Clone the project, install the dependencies and write some pretty code!
-```
-npx degit matyunya/smelte-template my-svelte-project
-cd my-svelte-project
-yarn && yarn dev
-(or npm install && npm run dev)
+```bash
+git clone https://github.com/muhajirdev/svelte-tailwind-template
+cd svelte-tailwind-template
+npm install
 ```
 
+...then start [Rollup](https://rollupjs.org):
 
-### Deployment to now
-Smelte comes preconfigured to work with [now.sh](https://now.sh) SSR build deployment.
-Configuration is located at `./now.json`.
+```bash
+npm run dev
 ```
-$ yarn now
+
+Navigate to [localhost:5000](http://localhost:5000). You should see your app running. Edit a component file in `src`, save it, and reload the page to see your changes.
+
+## Deploying to the web
+
+### With [now](https://zeit.co/now)
+
+Install `now` if you haven't already:
+
+```bash
+npm install -g now
+```
+
+Then, from within your project folder:
+
+```bash
+now
+```
+
+As an alternative, use the [Now desktop client](https://zeit.co/download) and simply drag the unzipped project folder to the taskbar icon.
+
+### With [surge](https://surge.sh/)
+
+Install `surge` if you haven't already:
+
+```bash
+npm install -g surge
+```
+
+Then, from within your project folder:
+
+```bash
+npm run build
+surge public
 ```
