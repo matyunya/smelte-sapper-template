@@ -5,3 +5,5 @@ yarn-error.log
 /__sapper__/
 mmmm.code-workspace
 static/global.css
+public/bundle.*
+public/components.*
