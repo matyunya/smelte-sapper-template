@@ -1,7 +1,7 @@
 {
   "name": "smelte-template",
   "description": "Sapper template for Smelte",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "scripts": {
     "dev": "sapper dev",
     "build": "sapper build --legacy",
@@ -23,9 +23,7 @@
     "compression": "^1.7.1",
     "express": "^4.17.1",
     "sirv": "^0.4.0",
-    "smelte": "^0.0.3",
-    "svelte": "^3.6.4",
-    "tinycolor2": "^1.4.1"
+    "smelte": "^0.0.19"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
@@ -59,7 +57,8 @@
     "rollup-plugin-string": "^3.0.0",
     "rollup-plugin-svelte": "^5.0.1",
     "rollup-plugin-terser": "^4.0.4",
-    "sapper": "^0.27.0",
+    "sapper": "^0.27.4",
+    "svelte": "^3.6.7",
     "svelte-preprocess": "^2.9.0",
     "tailwindcss": "^1.0.1",
     "tailwindcss-elevation": "^0.3.0"

@@ -1,8 +1,6 @@
 <script>
   import { stores } from "@sapper/app";
   import { onMount } from "svelte";
-  const { preloading, page } = stores();
-
   import { fade } from "svelte/transition";
 
   import AppBar from "components/AppBar";
@@ -21,35 +19,13 @@
     showNav,
     showNavMobile,
     breakpoint
-  } from "stores.js";
+  } from "smelte/src/stores.js";
 
-  let innerWidth = 0;
+  const { preloading, page } = stores();
+
   let selected = "";
-
-  function calcBreakpoint(width) {
-    if (width > 1279) {
-      return "xl";
-    }
-    if (width > 1023) {
-      return "lg";
-    }
-    if (width > 767) {
-      return "md";
-    }
-    return "sm";
-  }
-
-  onMount(() => {
-    if (!process.browser) return;
-
-    breakpoint.update(() => calcBreakpoint(window.innerWidth));
-  });
-
-  function updateBreakpoint({ target }) {
-    const bp = calcBreakpoint(target.innerWidth);
-
-    return breakpoint.update(() => bp);
-  }
+  const bp = breakpoint();
+  $: path = $page.path;
 
   const menu = [
     { to: "/about", text: "About" },
@@ -60,27 +36,19 @@
     { to: "/about", text: "About" },
     { to: "/blog", text: "Blog" },
   ];
-
-  function toggleNav() {
-    return showNavMobile.update(() => !$showNavMobile);
-  }
-
-  $: path = $page.path;
 </script>
+
+{#each menu as link}
+  <a href={link.to} class="hidden">{link.text}</a>
+{/each}
 
 <svelte:head>
   <title>Smelte: Material design using Tailwind CSS for Svelte</title>
 </svelte:head>
 
-<svelte:window on:resize={updateBreakpoint} />
-
 {#if $preloading}
   <ProgressLinear app />
 {/if}
-
-{#each menu as link}
-  <a href={link.to} class="hidden">{link.text}</a>
-{/each}
 
 <AppBar>
   <a href="." class="px-2 md:px-8 flex items-center">
@@ -88,13 +56,21 @@
     <h6 class="pl-3 text-white tracking-widest font-thin text-lg">SMELTE</h6>
   </a>
   <Spacer />
-  <Tabs c="sm:hidden md:flex" items={topMenu} bind:selected={path} />
+  <Tabs navigation items={topMenu} bind:selected={path} />
   <div class="md:hidden">
-    <Button icon="menu" small text on:click={toggleNav} />
+    <Button
+      icon="menu"
+      small
+      flat
+      add="text-white"
+      remove="p-1 h-4 w-4"
+      iconClasses={i => i.replace('p-4', 'p-3').replace('m-4', 'm-3')}
+      text
+      on:click={() => showNavMobile.set(!$showNavMobile)} />
   </div>
 </AppBar>
 
-{#if $breakpoint}
+{#if $bp}
   <main
     class="container relative p-8 lg:max-w-3xl lg:ml-64 mx-auto mb-10 mt-24
     md:ml-56 md:max-w-md md:px-3"
@@ -105,15 +81,10 @@
       right={$right}
       persistent={$persistent}
       elevation={$elevation}
-      breakpoint={$breakpoint}>
-      <h6 class="p-6 ml-1 pb-2 text-xs text-gray-900">First section of the menu</h6>
+      breakpoint={$bp}>
+      <h6 class="p-6 ml-1 pb-2 text-xs text-gray-900">Menu</h6>
       <List items={menu}>
         <span slot="item" let:item class="cursor-pointer">
-          {#if item.to === '/typography'}
-            <hr />
-            <h6 class="p-6 ml-1 py-2 text-xs text-gray-900">Utilities</h6>
-          {/if}
-
           <a href={item.to}>
             <ListItem
               selected={path.includes(item.to)}
@@ -127,6 +98,5 @@
     </NavigationDrawer>
 
     <slot />
-
   </main>
 {/if}

@@ -2,6 +2,7 @@
   import Image from 'components/Image';
   import Button from 'components/Button';
   import Checkbox from 'components/Checkbox';
+  import Slider from "components/Slider";
 </script>
 
 <h1>Great success!</h1>
@@ -15,4 +16,5 @@
 
   <Button>I'm a button</Button>
   <Checkbox label="I'm a checkbox" />
+  <Slider label="Me be slider" />
 </div>
