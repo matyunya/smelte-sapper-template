@@ -33,7 +33,6 @@
     "start:dev": "sirv public --dev"
   },
   "dependencies": {
-    "postcss-nesting": "^7.0.0",
-    "smelte": "^0.0.14"
+    "smelte": "^0.0.30"
   }
 }
