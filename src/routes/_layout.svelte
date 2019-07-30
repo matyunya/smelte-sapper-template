@@ -27,14 +27,11 @@
   const bp = breakpoint();
   $: path = $page.path;
 
-  const menu = [
-    { to: "/about", text: "About" },
-    { to: "/blog", text: "Blog" },
-  ];
+  const menu = [{ to: "/about", text: "About" }, { to: "/blog", text: "Blog" }];
 
   const topMenu = [
     { to: "/about", text: "About" },
-    { to: "/blog", text: "Blog" },
+    { to: "/blog", text: "Blog" }
   ];
 </script>
 
