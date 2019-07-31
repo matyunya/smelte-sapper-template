@@ -33,6 +33,7 @@
     "start:dev": "sirv public --dev"
   },
   "dependencies": {
-    "smelte": "^0.1.0"
+    "smelte": "^0.1.0",
+    "tailwindcss-elevation": "^0.3.1"
   }
 }

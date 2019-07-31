@@ -3239,6 +3239,11 @@ svgo@^1.0.0:
     unquote "~1.1.1"
     util.promisify "~1.0.0"
 
+tailwindcss-elevation@^0.3.1:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/tailwindcss-elevation/-/tailwindcss-elevation-0.3.1.tgz#2c55e09d34a4a121ba0400b0c5e63f3a70560a4a"
+  integrity sha512-dVRok49YF0aHUSmEK98Fj8WRspnIdi4+kjWO7Eyts0RyI7N4GAC9p8gHWuf+89rxjJDNLbVSpSgwZAmxQeuIrQ==
+
 tailwindcss@^1.0.3:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-1.0.4.tgz#98f186c8142bfb292bcbfcb53b84df369f11ef91"
