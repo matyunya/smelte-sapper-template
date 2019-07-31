@@ -2937,10 +2937,10 @@ sirv@^0.4.2:
     "@polka/url" "^0.5.0"
     mime "^2.3.1"
 
-smelte@^0.0.30:
-  version "0.0.30"
-  resolved "https://registry.yarnpkg.com/smelte/-/smelte-0.0.30.tgz#9b01d178a08d6f90a8eb5b885111185a74c41625"
-  integrity sha512-/pqyNpZo2mEzm1o6DcJpVvryCXMLT4ypgNDqohJGCdLR1At139MzVWrRMjELt9qJOkWisdmjmiB+76kulTovGg==
+smelte@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/smelte/-/smelte-0.1.0.tgz#c35aa5461bc345cec57ccd75cbdf6cef111bd0af"
+  integrity sha512-T4sSNus/I5UYG5gzhwv0+J2sTvA3T/b0uTRXFV2OE1z3jUltfZnDYaJFKgiyuNYYB483Y/xA+PA4czvqwTYOag==
   dependencies:
     svelte-waypoint "^0.1.2"
     tinycolor2 "^1.4.1"
