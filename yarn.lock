@@ -3724,10 +3724,10 @@ slice-ansi@^2.1.0:
     astral-regex "^1.0.0"
     is-fullwidth-code-point "^2.0.0"
 
-smelte@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/smelte/-/smelte-0.1.0.tgz#c35aa5461bc345cec57ccd75cbdf6cef111bd0af"
-  integrity sha512-T4sSNus/I5UYG5gzhwv0+J2sTvA3T/b0uTRXFV2OE1z3jUltfZnDYaJFKgiyuNYYB483Y/xA+PA4czvqwTYOag==
+smelte@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/smelte/-/smelte-0.1.2.tgz#d408d56a7ae12cafd7e22df8e74e44acb7b1fb28"
+  integrity sha512-8QuISLGGEWqylWt2AmCVnoDhsIszZeQV0f3B1OOHo4jD5bJWYcjvKwOISJiFOCHTxwLl2nP7cL7Vsv5Th1Rcfg==
   dependencies:
     svelte-waypoint "^0.1.2"
     tinycolor2 "^1.4.1"

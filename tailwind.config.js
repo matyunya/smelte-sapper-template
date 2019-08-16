@@ -1,14 +1,16 @@
-const {
-  rippleAfter,
-  ripple,
-  rippleActiveAfter,
-  addUtility
-} = require("./node_modules/smelte/src/utils/style.js");
+const { addUtility } = require("smelte/src/utils/style.js");
 
-const buildPalette = require("./node_modules/smelte/src/utils/color.js");
+const buildPalette = require("smelte/src/utils/color.js");
 
 const colors = {
   primary: "#795548",
+  secondary: "#009688",
+  error: "#f44336",
+  success: "#4caf50",
+  alert: "#ffeb3b",
+  blue: "#2196f3",
+
+  // You should keep only colors that you're using
   red: "#f44336",
   pink: "#e91e63",
   purple: "#9c27b0",
@@ -58,9 +60,16 @@ module.exports = {
       loose: 2
     },
     colors: {
-      white: "#fff",
-      black: "#000",
       transparent: "transparent",
+      white: "#fff",
+      "white-trans": "rgba(255,255,255,0.5)",
+      "white-transLight": "rgba(255,255,255,0.6)",
+      "white-transDark": "rgba(255,255,255,0.2)",
+      "black-trans": "rgba(0,0,0,0.5)",
+      "black-transLight": "rgba(0,0,0,0.7)",
+      "black-transDark": "rgba(0,0,0,0.35)",
+      "white-500": "#fff",
+      black: "#000",
 
       ...buildPalette(colors),
 
@@ -74,7 +83,10 @@ module.exports = {
         "600": "#6d4c41",
         "700": "#5d4037",
         "800": "#4e342e",
-        "900": "#3e2723"
+        "900": "#3e2723",
+        trans: "rgba(62,39,35,0.5)",
+        transLight: "rgba(62,39,35,0.7)",
+        transDark: "rgba(62,39,35,0.35)"
       },
 
       gray: {
@@ -87,7 +99,10 @@ module.exports = {
         "600": "#757575",
         "700": "#616161",
         "800": "#424242",
-        "900": "#212121"
+        "900": "#212121",
+        trans: "rgba(250, 250, 250, 0.5)",
+        transLight: "rgba(250, 250, 250, 0.6)",
+        transDark: "rgba(100, 100, 100, 0.2)"
       },
 
       "blue-gray": {
@@ -100,7 +115,10 @@ module.exports = {
         "600": "#546e7a",
         "700": "#455a64",
         "800": "#37474f",
-        "900": "#263238"
+        "900": "#263238",
+        trans: "rgb(236,239,241,0.5)",
+        transLight: "rgb(236,239,241,0.6)",
+        transDark: "rgb(236,239,241,0.2)"
       }
     }
   },
@@ -113,9 +131,6 @@ module.exports = {
     require("tailwindcss-elevation")(["hover"]),
     function({ addUtilities }) {
       return addUtilities({
-        [".label-transition"]: {
-          transition: "font-size 0.05s, line-height 0.1s"
-        },
         [".border-box"]: {
           boxSizing: "border-box"
         },
@@ -124,55 +139,11 @@ module.exports = {
         },
         [".transition"]: {
           transition: ".2s ease-in"
+        },
+        [".transition-fast"]: {
+          transition: ".1s"
         }
       });
-    },
-    // Ripples
-    function({ addUtilities, theme, e }) {
-      const colors = theme("colors");
-
-      const ripples = Object.keys(colors).reduce((acc, key) => {
-        if (typeof colors[key] === "string") {
-          return {
-            ...acc,
-            [`.ripple-${e(key)}`]: ripple,
-            [`.ripple-${e(key)}:after`]: {
-              ...rippleAfter,
-              backgroundImage: `radial-gradient(circle, ${colors[key]} 20%, transparent 10.01%)`
-            },
-            [`.ripple-${e(key)}:active:after`]: rippleActiveAfter
-          };
-        }
-
-        const variants = Object.keys(colors[key]);
-
-        return {
-          ...acc,
-          [`.ripple-${e(key)}`]: ripple,
-          [`.ripple-${e(key)}:after`]: {
-            ...rippleAfter,
-            backgroundImage: `radial-gradient(circle, ${
-              colors[key][500]
-            } 20%, transparent 10.01%)`
-          },
-          [`.ripple-${e(key)}:active:after`]: rippleActiveAfter,
-
-          ...variants.reduce(
-            (a, variant) => ({
-              ...a,
-              [`.ripple-${e(key)}-${variant}`]: ripple,
-              [`.ripple-${e(key)}-${variant}:after`]: {
-                ...rippleAfter,
-                backgroundImage: `radial-gradient(circle, ${colors[key][variant]} 20%, transparent 10.01%)`
-              },
-              [`.ripple-${e(key)}-${variant}:active:after`]: rippleActiveAfter
-            }),
-            {}
-          )
-        };
-      }, {});
-
-      addUtilities(ripples);
     },
     addUtility({
       prop: "caret-color",
