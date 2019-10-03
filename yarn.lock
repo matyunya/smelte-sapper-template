@@ -3725,9 +3725,9 @@ slice-ansi@^2.1.0:
     is-fullwidth-code-point "^2.0.0"
 
 smelte@^0.1.2:
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/smelte/-/smelte-0.1.2.tgz#d408d56a7ae12cafd7e22df8e74e44acb7b1fb28"
-  integrity sha512-8QuISLGGEWqylWt2AmCVnoDhsIszZeQV0f3B1OOHo4jD5bJWYcjvKwOISJiFOCHTxwLl2nP7cL7Vsv5Th1Rcfg==
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/smelte/-/smelte-0.1.5.tgz#29f6f5d4e70ca3de96adecccf0be27b14128c188"
+  integrity sha512-6OMWE7n2hPLwVUtqDKLqn9pclANKOSncph1AsFfx9TZYPEydJaV45lZ4Bxjjyis65Wr2PZrWMmLr1qterkoDdQ==
   dependencies:
     svelte-waypoint "^0.1.2"
     tinycolor2 "^1.4.1"
