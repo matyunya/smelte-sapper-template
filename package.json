@@ -23,7 +23,7 @@
     "compression": "^1.7.1",
     "express": "^4.17.1",
     "sirv": "^0.4.0",
-    "smelte": "^0.1.2"
+    "smelte": "^0.1.10"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
@@ -58,7 +58,7 @@
     "rollup-plugin-svelte": "^5.0.1",
     "rollup-plugin-terser": "^4.0.4",
     "sapper": "^0.27.4",
-    "svelte": "^3.6.7",
+    "svelte": "^3.12.1",
     "svelte-preprocess": "^2.9.0",
     "tailwindcss": "^1.0.1",
     "tailwindcss-elevation": "^0.3.0"
