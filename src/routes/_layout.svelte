@@ -11,20 +11,18 @@
   import ListItem from "components/List/ListItem.svelte";
   import NavigationDrawer from "components/NavigationDrawer";
   import ProgressLinear from "components/ProgressLinear";
+  import { writable } from "svelte/store";
 
-  import {
-    right,
-    elevation,
-    persistent,
-    showNav,
-    showNavMobile,
-    breakpoint
-  } from "smelte/src/stores.js";
+  const right = writable(false);
+  const persistent = writable(true);
+  const elevation = writable(false);
+  const showNav = writable(true);
+
 
   const { preloading, page } = stores();
 
   let selected = "";
-  const bp = breakpoint();
+
   $: path = $page.path;
 
   const menu = [{ to: "/about", text: "About" }, { to: "/blog", text: "Blog" }];
@@ -63,37 +61,34 @@
       remove="p-1 h-4 w-4"
       iconClasses={i => i.replace('p-4', 'p-3').replace('m-4', 'm-3')}
       text
-      on:click={() => showNavMobile.set(!$showNavMobile)} />
+      on:click={() => showNav.set(!$showNav)} />
   </div>
 </AppBar>
 
-{#if $bp}
-  <main
-    class="container relative p-8 lg:max-w-3xl lg:ml-64 mx-auto mb-10 mt-24
-    md:ml-56 md:max-w-md md:px-3"
-    transition:fade={{ duration: 300 }}>
-    <NavigationDrawer
-      bind:showDesktop={$showNav}
-      bind:showMobile={$showNavMobile}
-      right={$right}
-      persistent={$persistent}
-      elevation={$elevation}
-      breakpoint={$bp}>
-      <h6 class="p-6 ml-1 pb-2 text-xs text-gray-900">Menu</h6>
-      <List items={menu}>
-        <span slot="item" let:item class="cursor-pointer">
-          <a href={item.to}>
-            <ListItem
-              selected={path.includes(item.to)}
-              {...item}
-              dense
-              navigation />
-          </a>
-        </span>
-      </List>
-      <hr />
-    </NavigationDrawer>
+<main
+  class="container relative p-8 lg:max-w-3xl lg:ml-64 mx-auto mb-10 mt-24
+  md:ml-56 md:max-w-md md:px-3"
+  transition:fade={{ duration: 300 }}>
+  <NavigationDrawer
+    bind:show={$showNav}
+    right={$right}
+    persistent={$persistent}
+    elevation={$elevation}
+  >
+    <h6 class="p-6 ml-1 pb-2 text-xs text-gray-900">Menu</h6>
+    <List items={menu}>
+      <span slot="item" let:item class="cursor-pointer">
+        <a href={item.to}>
+          <ListItem
+            selected={path.includes(item.to)}
+            {...item}
+            dense
+            navigation />
+        </a>
+      </span>
+    </List>
+    <hr />
+  </NavigationDrawer>
 
-    <slot />
-  </main>
-{/if}
+  <slot />
+</main>
