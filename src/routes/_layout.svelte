@@ -44,7 +44,7 @@
   <ProgressLinear app />
 {/if}
 
-<AppBar class={i=> i.replace('primary-300', 'dark-600')}>
+<AppBar class={i => i.replace('primary-300', 'dark-600')}>
   <a href="." class="px-2 md:px-8 flex items-center">
     <img src="/logo.png" alt="Smelte logo" width="44" />
     <h6 class="pl-3 text-white tracking-widest font-thin text-lg">SMELTE</h6>
@@ -52,8 +52,13 @@
   <Spacer />
   <Tabs navigation items={topMenu} bind:selected={path} />
   <div class="md:hidden">
-    <Button icon="menu" small flat add="text-white" remove="p-1 h-4 w-4" iconClasses={i=> i.replace('p-4',
-      'p-3').replace('m-4', 'm-3')}
+    <Button
+      icon="menu"
+      small
+      flat
+      add="text-white"
+      remove="p-1 h-4 w-4"
+      iconClasses={i => i.replace('p-4', 'p-3').replace('m-4', 'm-3')}
       text
       on:click={() => showNav.set(!$showNav)} />
   </div>
